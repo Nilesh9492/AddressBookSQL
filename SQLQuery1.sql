@@ -22,3 +22,6 @@ Insert into Address_Book_Table values('Nilesh','bhamare','dhggh','fyfy','mh',456
 --UC4--
 update Address_Book_Table set EmailId='nil@gmail.com' where FirstName='Nilesh';
 select * from Address_Book_Table;
+
+--UC5--
+delete from Address_Book_Table where FirstName='Mahesh' and LastName='bha';
