@@ -18,3 +18,7 @@ EmailId varchar(100)
 --UC3--
 Insert into Address_Book_Table values('Nilesh','bhamare','dhggh','fyfy','mh',456545,9874563210,'ftxf@gmail.com'),
 ('Mahesh','bha','gfhgfh','hg','gj',426586,9123456780,'mm@gmail.com');
+
+--UC4--
+update Address_Book_Table set EmailId='nil@gmail.com' where FirstName='Nilesh';
+select * from Address_Book_Table;
