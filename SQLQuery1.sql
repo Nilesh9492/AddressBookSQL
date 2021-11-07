@@ -14,3 +14,7 @@ ZipCode int,
 Phonenum bigint,
 EmailId varchar(100)
 );
+
+--UC3--
+Insert into Address_Book_Table values('Nilesh','bhamare','dhggh','fyfy','mh',456545,9874563210,'ftxf@gmail.com'),
+('Mahesh','bha','gfhgfh','hg','gj',426586,9123456780,'mm@gmail.com');
