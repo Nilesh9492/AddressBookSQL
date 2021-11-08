@@ -30,3 +30,7 @@ delete from Address_Book_Table where FirstName='Mahesh' and LastName='bha';
 Select FirstName,LastName from Address_Book_Table where City='fyfy' or StateName='mh';
 
 Select FirstName,LastName from Address_Book_Table where City='hg';
+
+--UC7--
+Select Count(*) As Count,StateName,City from Address_Book_Table group by StateName,City;
+
