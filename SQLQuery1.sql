@@ -35,4 +35,4 @@ Select FirstName,LastName from Address_Book_Table where City='hg';
 Select Count(*) As Count,StateName,City from Address_Book_Table group by StateName,City;
 
 --UC8--
-select FirstName,LastName from Address_Book_Table where StateName='mh' order by FirstName;
+select FirstName,LastName from Address_Book_Table where City='fyfy' order by FirstName;
