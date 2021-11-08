@@ -48,3 +48,6 @@ set AddressBookName='Friend',RelationType='Friend' where FirstName='Nilesh'
 update Address_Book_Table
 set AddressBookName='Cousin',RelationType='Family' where ZipCode=456545;
 
+--UC10--
+Select count(*)as CountType, Phonenum  from Address_Book_Table group by RelationType;
+
