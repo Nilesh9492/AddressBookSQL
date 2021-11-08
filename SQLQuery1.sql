@@ -36,3 +36,15 @@ Select Count(*) As Count,StateName,City from Address_Book_Table group by StateNa
 
 --UC8--
 select FirstName,LastName from Address_Book_Table where City='fyfy' order by FirstName;
+
+--UC9--
+alter table Address_Book_Table
+add AddressBookName varchar(50),
+RelationType varchar(50)
+
+update Address_Book_Table
+set AddressBookName='Friend',RelationType='Friend' where FirstName='Nilesh' 
+
+update Address_Book_Table
+set AddressBookName='Cousin',RelationType='Family' where ZipCode=456545;
+
