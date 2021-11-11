@@ -89,7 +89,6 @@ ContactTypeName varchar(max)
 
 Insert into Contact_Type values
 ('Family'),('Friends');
---Retrieve the data
 Select * from Contact_Type;
 
 create Table Relation_Type(
@@ -112,5 +111,31 @@ from Address_Book
 Full JOIN Contact_Person on Address_Book.AddressBookID=Contact_Person.AddressBook_ID 
 Full JOIN Relation_Type on Relation_Type.Contact_ID=Contact_Person.ContactID
 Full JOIN Contact_Type on Relation_Type.ContactType_ID=Contact_Type.ContactTypeID
+
+--UC13--
+--UC6--
+select AddressBookName,FirstName,LastName,Address,City,StateName,ZipCode,PhoneNum,EmailId,ContactTypeName
+from Contact_Person 
+INNER JOIN  Address_Book on Address_Book.AddressBookID=Contact_Person.AddressBook_ID and (City='Mumbai' or StateName='mh')
+INNER JOIN Relation_Type on Relation_Type.Contact_ID=Contact_Person.ContactID
+INNER JOIN Contact_Type on Relation_Type.ContactType_ID=Contact_Type.ContactTypeID
+--UC7--
+select Count(*)As CountOfStateAndCity ,StateName,City
+from Contact_Person 
+INNER JOIN  Address_Book on Address_Book.AddressBookID=AddressBook_ID 
+Group by StateName,City
+--UC8--
+select AddressBookName,FirstName,LastName,Address,City,StateName,ZipCode,PhoneNum,EmailId,ContactTypeName
+from Contact_Person 
+INNER JOIN  Address_Book on Address_Book.AddressBookID=AddressBook_ID 
+INNER JOIN Relation_Type on Relation_Type.Contact_Id=Contact_Person.ContactID
+INNER JOIN Contact_Type on Relation_Type.ContactType_ID=Contact_Type.ContactTypeID
+order by(FirstName)
+--UC10--
+select Count(*) as NumberOfContacts,Contact_Type.ContactTypeName
+from Contact_Person 
+INNER JOIN  Address_Book on Address_Book.AddressBookID=Contact_Person.AddressBook_ID
+INNER JOIN Relation_Type on Relation_Type.Contact_ID=Contact_Person.ContactID
+INNER JOIN Contact_Type on Relation_Type.ContactType_ID=Contact_Type.ContactTypeID Group by ContactTypeName
 
 
