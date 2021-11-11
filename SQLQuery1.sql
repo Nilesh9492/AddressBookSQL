@@ -51,3 +51,66 @@ set AddressBookName='Cousin',RelationType='Family' where ZipCode=456545;
 --UC10--
 Select count(*)as CountType, Phonenum  from Address_Book_Table group by RelationType;
 
+--UC11--
+create table Address_Book(
+AddressBookID int identity(1,1) primary key,
+AddressBookName varchar(100)
+)
+
+Insert into Address_Book values ('Family'),('Friend');
+
+select * from Address_Book;
+
+create table Contact_Person(
+AddressBook_ID int,
+ContactID int identity(1,1) primary key,
+FirstName varchar(max),
+LastName varchar(max),
+Address varchar(max),
+City varchar(max),
+StateName varchar(max),
+ZipCode BigInt,
+PhoneNum BigInt,
+EmailId varchar(max),
+foreign key (AddressBook_ID) references Address_Book(AddressBookID));
+
+Insert into Contact_Person values
+('Nilesh','bhamare','dhggh','fyfy','mh',456545,9874563210,'ftxf@gmail.com'),
+('Mahesh','bha','gfhgfh','hg','gj',426586,9123456780,'mm@gmail.com'),
+('Parth','mahajan','dssf','fsf','fd',426836,9632587410,'rhgf@dff.com');
+
+
+select * from Contact_Person;
+
+create table Contact_Type
+(ContactTypeID int identity(1,1) primary key,
+ContactTypeName varchar(max)
+)
+
+Insert into Contact_Type values
+('Family'),('Friends');
+--Retrieve the data
+Select * from Contact_Type;
+
+create Table Relation_Type(
+ContactType_ID int,
+Contact_ID int,
+foreign key (ContactType_ID) references Contact_Type(ContactTypeID),
+foreign key (Contact_ID) references Contact_Person(ContactID)
+);
+
+insert into Relation_Type values
+(1,1),
+(2,2),
+(1,3),
+(1,4)
+
+Select * from Relation_Type;
+
+select AddressBookName,FirstName,LastName,Address,City,StateName,ZipCode,PhoneNum,EmailId,ContactTypeName
+from Address_Book 
+Full JOIN Contact_Person on Address_Book.AddressBookID=Contact_Person.AddressBook_ID 
+Full JOIN Relation_Type on Relation_Type.Contact_ID=Contact_Person.ContactID
+Full JOIN Contact_Type on Relation_Type.ContactType_ID=Contact_Type.ContactTypeID
+
+
